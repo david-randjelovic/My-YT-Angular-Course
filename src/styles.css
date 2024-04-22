@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --primary-color: #59c193 !important;
+    --subheading-color: #626F86 !important;
+    --secondary-color: #d6d6d6 !important;
+    --hover-color: #ecf0f1 !important;
+    --error-color: #b0090a !important;
+    --background-color: #fff !important;
+    --text-color: #000 !important;
+    --line-color: #59c193 !important;
+    --list-color: #ecf0f1 !important;
+    --addon-background-color: #fff !important;
+}
+  
