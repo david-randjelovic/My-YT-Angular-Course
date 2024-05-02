@@ -14,6 +14,7 @@
                     </p-inputGroupAddon>
                     <input pInputText placeholder="Username" formControlName="username" />
                 </p-inputGroup>
+                <span class="warning-text" *ngIf="!authService.registerForm.get('username')?.valid && authService.registerForm.get('username')?.touched">Username should contain at least 2 characters.</span>
             </div>
             <div class="form-item">
                 <p-inputGroup>
@@ -22,7 +23,7 @@
                     </p-inputGroupAddon>
                     <input pInputText placeholder="Email" formControlName="email" />
                 </p-inputGroup>
-                <span *ngIf="!authService.registerForm.get('email')?.valid && authService.registerForm.get('email')?.touched">Please enter a valid email.</span>
+                <span class="warning-text" *ngIf="!authService.registerForm.get('email')?.valid && authService.registerForm.get('email')?.touched">Please enter a valid email.</span>
             </div>
             <div class="form-item">
                 <p-inputGroup>
@@ -31,6 +32,7 @@
                     </p-inputGroupAddon>
                     <input pInputText placeholder="Phone"  formControlName="phone" />
                 </p-inputGroup>
+                <span class="warning-text" *ngIf="!authService.registerForm.get('phone')?.valid && authService.registerForm.get('phone')?.touched">Phone should contain at least 8 numbers.</span>
             </div>
             <div class="form-item">
                 <p-inputGroup>
@@ -39,6 +41,7 @@
                     </p-inputGroupAddon>
                     <input pInputText placeholder="Password" type="password" formControlName="password" />
                 </p-inputGroup>
+                <span class="warning-text" *ngIf="!authService.registerForm.get('password')?.valid && authService.registerForm.get('password')?.touched">Password should contain at least 8 characters.</span>
             </div>
         </div>
         <div class="buttons">

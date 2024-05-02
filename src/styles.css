@@ -18,4 +18,8 @@ body, html {
     --list-color: #ecf0f1 !important;
     --addon-background-color: #fff !important;
 }
+
+.warning-text {
+    color: var(--error-color);
+}
   
