@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { finalize } from 'rxjs';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -9,19 +10,17 @@ import { finalize } from 'rxjs';
 })
 export class RegisterComponent {
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private _router: Router, private _notificationService: NotificationService) {}
 
   public onSubmit(): void {
-    this.authService.onRegister(this.authService.registerForm.value).pipe(
-      finalize(() => {
-        console.log('test');
-      })
-    ).subscribe({
+    this.authService.onRegister(this.authService.registerForm.value).subscribe({
       next: response => {
-        console.log(response);
+        this.authService.registerForm.reset();
+        this._router.navigateByUrl('/login');
+        this._notificationService.displayNotification('success', 'Success', 'Registration successful, please login.');
       },
       error: error => {
-        console.log(error);
+        this._notificationService.displayNotification('error', 'Error', 'Oops, something went wrong');
       }
     });
   }

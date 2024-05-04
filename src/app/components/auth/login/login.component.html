@@ -1,0 +1,34 @@
+<div class="registration-wrapper">
+    <form [formGroup]="authService.loginForm" (ngSubmit)="onSubmit()">
+        <div class="upper-line"></div>
+        <div class="logo-wrapper">
+            <img class="logo" src="../assets/logo.svg" alt="logo.svg">
+            <span>Angular course task manager</span>
+            <span class="faded">(Login Form)</span>
+        </div>
+        <div class="form-items">
+            <div class="form-item">
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-envelope"></i>
+                    </p-inputGroupAddon>
+                    <input pInputText placeholder="Email" formControlName="email" />
+                </p-inputGroup>
+                <span class="warning-text" *ngIf="!authService.loginForm.get('email')?.valid && authService.loginForm.get('email')?.touched">Please enter a valid email.</span>
+            </div>
+            <div class="form-item">
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-lock"></i>
+                    </p-inputGroupAddon>
+                    <input pInputText placeholder="Password" type="password" formControlName="password" />
+                </p-inputGroup>
+                <span class="warning-text" *ngIf="!authService.loginForm.get('password')?.valid && authService.loginForm.get('password')?.touched">Password should contain at least 8 characters.</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button pButton class="register-button" type="submit" label="Submit" [disabled]="!authService.loginForm.valid"></button>
+            <span class="login-link" routerLink="/register">Don't have an account?</span>
+        </div>
+</form>
+</div>

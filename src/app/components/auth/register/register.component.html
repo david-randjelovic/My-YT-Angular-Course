@@ -30,7 +30,7 @@
                     <p-inputGroupAddon>
                         <i class="pi pi-phone"></i>
                     </p-inputGroupAddon>
-                    <input pInputText placeholder="Phone"  formControlName="phone" />
+                    <input pInputText placeholder="Phone"  formControlName="phone" appNumbersOnly/>
                 </p-inputGroup>
                 <span class="warning-text" *ngIf="!authService.registerForm.get('phone')?.valid && authService.registerForm.get('phone')?.touched">Phone should contain at least 8 numbers.</span>
             </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="buttons">
             <button pButton class="register-button" type="submit" label="Submit" [disabled]="!authService.registerForm.valid"></button>
-            <span class="login-link">Already have an account?</span>
+            <span class="login-link" routerLink="/login">Already have an account?</span>
         </div>
 </form>
 </div>
