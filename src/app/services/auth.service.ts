@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { environment } from "../environments/environment";
 import { Observable } from "rxjs";
+import { LoginResponse } from "../interfaces/login-response.interface";
 
 @Injectable()
 export class AuthService {
@@ -21,12 +22,12 @@ export class AuthService {
 
     constructor(private _fb: FormBuilder, private _http: HttpClient) {}
 
-    public onRegister(form: FormGroup): Observable<any> {
-        return this._http.post(environment.apiUrl + 'register', form);
+    public onRegister(form: FormGroup): Observable<{message: string}> {
+        return this._http.post<{message: string}>(environment.apiUrl + 'register', form);
     }
 
-    public onLogin(form: FormGroup): Observable<any> {
-        return this._http.post(environment.apiUrl + 'login', form);
+    public onLogin(form: FormGroup): Observable<LoginResponse> {
+        return this._http.post<LoginResponse>(environment.apiUrl + 'login', form);
     }
 
 }
