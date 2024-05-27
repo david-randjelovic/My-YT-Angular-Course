@@ -1,0 +1,4 @@
+.content-container {
+    display: grid !important;
+    grid-template-columns: 0.10fr 1.90fr !important;
+  }

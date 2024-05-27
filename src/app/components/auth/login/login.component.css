@@ -1,5 +1,6 @@
-.registration-wrapper {
+.login-wrapper {
     height: 100vh;
+    width: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;

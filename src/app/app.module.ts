@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NumericDirective } from './directives/numeric.directive';
 import { LoginComponent } from './components/auth/login/login.component';
 import { MessageService } from 'primeng/api';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MessageService } from 'primeng/api';
     DashboardComponent,
     RegisterComponent,
     NumericDirective,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+<header class="app-header">
+    <div class="logo-wrapper">
+      <div class="logo"></div>
+      <span class="heading">David's task manager</span>
+    </div>
+    <div class="header-right-side">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-search"></i>
+        </p-inputGroupAddon>
+        <input pInputText class="search-box" placeholder="Search..."/>
+      </p-inputGroup>
+      <div class="profile-menu" (click)="menu.toggle($event)" [style]="{ backgroundImage: 'url('+ profilePictureUrl +')' }"></div>
+      <p-menu [model]="items" [popup]="true" id="overlay-menu" #menu />
+  </div>
+  </header>
+  <p-toast/>

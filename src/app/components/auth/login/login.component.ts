@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { NotificationService } from '../../../services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,13 @@ import { NotificationService } from '../../../services/notification.service';
 })
 export class LoginComponent {
 
-  constructor(public authService: AuthService, private _notificationService: NotificationService) {}
+  constructor(public authService: AuthService, private _notificationService: NotificationService, private _router: Router) {}
 
   public onSubmit(): void {
     this.authService.onLogin(this.authService.loginForm.value).subscribe({
       next: response => {
         localStorage.setItem('token', response.token);
+        this._router.navigateByUrl('/dashboard');
         this._notificationService.displayNotification('success', 'Success', 'Login successful!');
       },
       error: error => {
